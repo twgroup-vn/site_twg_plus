@@ -1,0 +1,216 @@
+/* Common style */
+body{
+    color: #2E3A59;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 700;
+}
+
+h2{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+h3{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+.section{
+    padding: 6rem 0;
+}
+
+
+
+
+/* Hero section */
+.hero-section {
+    background-image: url(images/hero-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 0.5rem 0;
+}
+.hero-section:before {
+    background: linear-gradient(180deg, rgba(244, 152, 27, 0.34) 0%, #E05C27 100%);
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .8;
+    z-index: -1;
+}
+
+.hero-inner{
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.hero-btn{
+    padding-top: 2rem;
+}
+
+.download-btn{
+    margin-bottom: 1rem;
+}
+
+.download-btn-apple{
+    margin-right: 2rem;
+}
+
+/* Benifit section */
+.benifit-section{
+    position: relative;
+}
+
+.benifit-section .benifit-img{
+    background-image: url(svgs/benifit_phone.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: -150px;
+    animation-name: mock-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: mock-animation;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    z-index: 1;
+}
+
+.benifit-section .benifit-content{
+    margin-bottom: 40px;
+}
+
+.benifit-section .benifit-content img{
+    margin-bottom: 20px;
+}
+
+
+.benifit-section .benifit-content h3{
+    margin-bottom: 10px;
+}
+
+@keyframes mock-animation {
+    0% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+    }
+    50% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+}
+
+.benifit-list-left{
+    text-align: right;
+}
+
+/* Feature */
+.row-feature{
+    margin-bottom: 5rem;
+}
+/* Download section */
+.download-section{
+    background-color: #F7F9FC;
+    position: relative;
+    z-index: 1;
+}
+
+.plus-background{
+    position: absolute;
+    bottom: 20%;
+    right: 6%;
+    z-index: -1;
+}
+
+/* Footer */
+footer{
+    background-color: #EF7D00;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 12px;
+    ;
+}
+
+footer *{
+    color: #ffffff;
+}
+
+footer a{
+    margin-left: 3rem;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:visited{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo-twg{
+    margin-bottom: 12px;
+    margin-left: 4px;
+}
+
+@media (max-width: 992px) {
+   .d-none-mobile{
+       display: none !important;
+   }
+}
+
+@media (max-width: 767px) {
+    .download-btn{
+        display: block;
+    }
+
+    .download-btn-apple{
+        margin-right: 0;
+    }
+
+    .benifit-list-left,
+    .benifit-list{
+     text-align: center;
+     }
+
+     .col-feature-content{
+         order: 1;
+     }
+
+     .col-feature-img{
+         order: 0;
+     }
+
+
+ }
+   
+  
