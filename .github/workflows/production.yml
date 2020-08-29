@@ -33,6 +33,7 @@ jobs:
       - name: Prepare key
         run: |
           mkdir ~/.ssh
+          ssh-keyscan ${{ env.SERVER_IP }}
           echo "${{ secrets.PRIVATE_KEY }}" >> ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
           echo "${{ secrets.STAGING_ECDSA_KEY }}" >> ~/.ssh/known_hosts
