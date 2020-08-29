@@ -1,0 +1,45 @@
+# This workflow will build and push a node.js application to an Azure Web App when a release is created.
+#
+# This workflow assumes you have already created the target Azure App Service web app.
+# For instructions see https://docs.microsoft.com/azure/app-service/app-service-plan-manage#create-an-app-service-plan
+#
+# To configure this workflow:
+#
+# 1. Set up a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE with the value of your Azure publish profile.
+#    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
+#
+# 2. Change the values for the AZURE_WEBAPP_NAME, AZURE_WEBAPP_PACKAGE_PATH and NODE_VERSION environment variables  (below).
+#
+# For more information on GitHub Actions for Azure, refer to https://github.com/Azure/Actions
+# For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
+name: Production
+
+on:
+  push:
+    branches: [ master ]
+env:
+  SERVER_IP: "13.76.131.204"
+  WORKING_DIR: "/var/www/app/site_twg_plus"
+  NODE_VERSION: '12.x'
+
+# vi /etc/ssh/ssh_host_ecdsa_key.pub
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepare key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.PRIVATE_KEY }}" >> ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+          echo "${{ secrets.STAGING_ECDSA_KEY }}" >> ~/.ssh/known_hosts
+      - name: Zip source code
+        run: |
+          zip -r site_twg_plus.zip assets index.html
+      - name: Deploy to server
+        run: |
+          scp -i ~/.ssh/id_rsa ./site_twg_plus.zip "ubuntu@${{ env.SERVER_IP }}:~/"
+          ssh -i ~/.ssh/id_rsa "ubuntu@${{ env.SERVER_IP }}" "rm -Rf site_twg_plus && mkdir site_twg_plus && unzip site_twg_plus.zip -d ./site_twg_plus && rm -Rf ${{ env.WORKING_DIR }} && mv site_twg_plus ${{ env.WORKING_DIR }}"
