@@ -23,7 +23,7 @@ env:
   NODE_VERSION: '12.x'
 
 # vi /etc/ssh/ssh_host_ecdsa_key.pub
-
+# 13.76.131.204 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiunrwzkTUcIQ8lbmRJKrwdvXw3H4stX9TT+hucIhtC
 jobs:
   build-and-deploy:
     name: Build and Deploy
