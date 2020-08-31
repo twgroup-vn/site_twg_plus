@@ -210,6 +210,9 @@ footer a:visited{
          order: 0;
      }
 
+     .row-feature .col-feature-img{
+        margin-bottom: 1rem;
+     }
 
  }
    
