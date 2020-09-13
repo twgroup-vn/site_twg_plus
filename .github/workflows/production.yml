@@ -39,7 +39,7 @@ jobs:
           echo "${{ secrets.STAGING_ECDSA_KEY }}" >> ~/.ssh/known_hosts
       - name: Zip source code
         run: |
-          zip -r site_twg_plus.zip assets index.html
+          zip -r site_twg_plus.zip assets index.html guide.html
       - name: Deploy to server
         run: |
           scp -i ~/.ssh/id_rsa ./site_twg_plus.zip "ubuntu@${{ env.SERVER_IP }}:~/"
