@@ -5,6 +5,10 @@ body{
     font-size: 20px;
 }
 
+a, a:active, a:visited {
+    color: #EF7D00;
+}
+
 h1{
     font-size: 48px;
     font-weight: 700;
@@ -63,7 +67,7 @@ p{
     display: flex;
     justify-items: center;
     align-items: center;
-    
+
 }
 
 .hero-btn{
@@ -222,5 +226,4 @@ footer a:visited{
      }
 
  }
-   
-  
+
