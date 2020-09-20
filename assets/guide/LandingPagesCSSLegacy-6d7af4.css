@@ -2031,13 +2031,13 @@ a.tip {
     margin: 0 10px
 }
 
-.td-guide .td-guide__downloads-link:first-of-type {
-    margin-left: 0
-}
+/*.td-guide .td-guide__downloads-link:first-of-type {*/
+/*    margin-left: 0*/
+/*}*/
 
-.td-guide .td-guide__downloads-link:last-of-type {
-    margin-right: 0
-}
+/*.td-guide .td-guide__downloads-link:last-of-type {*/
+/*    margin-right: 0*/
+/*}*/
 
 @media only screen and (max-width: 1023px) {
     .td-guide .td-guide__downloads-link {
